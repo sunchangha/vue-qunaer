@@ -21,9 +21,11 @@ const createLintingRule = () => ({
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
+  //entry入口
   entry: {
     app: './src/main.js'
   },
+  //output 出口
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
@@ -44,6 +46,7 @@ module.exports = {
     rules: [
       ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
+        //test 定义需要被转化的文件或者文件类型
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig

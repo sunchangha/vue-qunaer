@@ -9,7 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-
+//require() 引用模块的方式
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
@@ -18,7 +18,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
   },
   // cheap-module-eval-source-map is faster for development
-  devtool: config.dev.devtool,
+  // devtool: config.dev.devtool,
+  devtool: 'flase',
 
   // these devServer options should be customized in /config/index.js
   devServer: {
@@ -44,6 +45,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       poll: config.dev.poll,
     }
   },
+  //plugin 使用时必须先引入该插件
   plugins: [
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
