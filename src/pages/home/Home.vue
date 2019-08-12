@@ -62,6 +62,7 @@ export default {
       this.lastCity = this.city
       this.getHomeInfo()
     }
+    //20190812保存gitHub
   }
 }
 </script>
